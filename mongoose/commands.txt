@@ -1,0 +1,13 @@
+1)install mongodb http://www.mongodb.org/
+
+-Set up the MongoDB environment.
+
+2)a "C:\Program Files\MongoDB\Server\4.4\bin\mongod.exe" --dbpath=data --bind_ip=127.0.0.1
+
+2)b "C:\Program Files\MongoDB\Server\4.4\bin\mongod.exe" --dbpath d:\test\mongodb\data --bind_ip 127.0.0.1
+
+-Start MongoDB.
+"C:\Program Files\MongoDB\Server\4.4\bin\mongod.exe"
+
+-Connect to MongoDB
+"C:\Program Files\MongoDB\Server\4.4\bin\mongo.exe" //(or mongo if PATH variable exists)
