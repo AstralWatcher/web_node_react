@@ -17,6 +17,11 @@ const favoriteRouter = require('./routes/favoriteRouter');
 const commentRouter = require('./routes/commentRouter');
 
 const mongoose = require('mongoose');
+// TODO 1 Update depracation https://stackoverflow.com/questions/51960171/node63208-deprecationwarning-collection-ensureindex-is-deprecated-use-creat
+// by replacing mongoose update(), remove() with new varients()
+// mongoose.set('useNewUrlParser', true); 
+// mongoose.set('useFindAndModify', false);
+// mongoose.set('useCreateIndex', true);
 
 const url = config.mongoUrl;
 const connect = mongoose.connect(url);
@@ -28,6 +33,12 @@ connect.then((db) => {
 });
 
 var app = express();
+const cors =  require('cors');
+
+app.use((req, res, next) => { //TODO on deployment remove this and modify cors.js
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 app.all('*', (req, res, next) => {
   if (req.secure) { // comming with https (it will be set when secure port)
@@ -40,6 +51,23 @@ app.all('*', (req, res, next) => {
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+// const corsOpts = {
+//   origin: '*',
+
+//   methods: [
+//     'GET',
+//     'POST',
+//   ],
+
+//   allowedHeaders: [
+//     'Content-Type',
+//   ],
+// };
+
+
+app.use(cors());
+app.options('*', cors());
 
 app.use(logger('dev'));
 app.use(express.json());

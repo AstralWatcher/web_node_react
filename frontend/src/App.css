@@ -53,3 +53,7 @@ address{
     transform: translateX(100%);
     transition: all 300ms ease-out;
 }
+
+.cardImg-missing {
+    height: 100px;
+}

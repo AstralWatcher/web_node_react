@@ -15,7 +15,7 @@ function RenderCard({item, isLoading, errMess}) {
             <h4>{errMess}</h4>
         );
     }
-    else
+    else if(item != null){
         return(
             <FadeTransform in 
                 transformProps={{
@@ -31,6 +31,18 @@ function RenderCard({item, isLoading, errMess}) {
                 </Card>
             </FadeTransform>
         );
+    } else {
+      return (
+        <FadeTransform in transformProps={{ exitTransform: 'scale(0.5) translateY(-50%)' }}>
+            <Card>
+                <CardImg className="cardImg-missing" src="#"/>
+                <CardBody>
+                    <CardTitle>No featured item</CardTitle>
+                </CardBody>
+            </Card>
+        </FadeTransform>
+      )
+    }
 }
 
 function Home(props) {

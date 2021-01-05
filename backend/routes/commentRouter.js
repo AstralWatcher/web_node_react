@@ -135,3 +135,5 @@ commentRouter.route('/:commentId')
         }, (err) => next(err))
             .catch((err) => next(err));
     });
+
+    module.exports = commentRouter;

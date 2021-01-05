@@ -14,7 +14,7 @@ const fs = require('fs');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '4000');
 app.set('port', port);
 app.set('secPort', port + 443);
 
@@ -40,6 +40,8 @@ server.on('listening', onListening);
 var options = {
   key: fs.readFileSync(__dirname + '/key.pem'),
   cert: fs.readFileSync(__dirname + '/cert.crt')
+  // key: fs.readFileSync(__dirname + '/confusion01.key'),
+  // cert: fs.readFileSync(__dirname + '/confusion01.cer')
 }
 
 

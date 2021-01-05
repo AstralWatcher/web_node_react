@@ -6,7 +6,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-const whitelist = ['http://localhost:3000', 'https://localhost:3443',]; //#TODO add origin  'http:/Astral.rs:3001'
+const whitelist = ['http://localhost:4000', 'https://localhost:4443', 'http://localhost:3000', 'https://localhost:3000', 'http:/Astral:3000', 'https:/Astral:3000']; //#TODO add origin  'http:/Astral:3001'
 
 var corsOptionsDelegate = (req, callback) => {
     var corsOptions;
